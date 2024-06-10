@@ -2,8 +2,6 @@ import { NintondoApi, type INintondoApi } from "./api";
 import type { INintondoProvider } from "./provider";
 import { NintondoUtils, type INintondoUtilities } from "./utils";
 
-let nintondo: INintondoProvider | undefined;
-
 export interface INintondo {
   /**
    * The utilities object for the Nintondo Provider SDK.
@@ -40,9 +38,11 @@ class Nintondo implements INintondo {
  * @returns Returns undefined if the Nintondo provider is not available.
  */
 export const initNintondo = (): Nintondo | undefined => {
-  if (!nintondo) {
+  if (typeof window !== "undefined" && (window as any).nintondo) {
+    const nintondoProvider = (window as any).nintondo as INintondoProvider;
+    return new Nintondo(nintondoProvider);
+  } else {
+    console.error("Nintondo provider is not available.");
     return undefined;
   }
-
-  return new Nintondo(nintondo);
 };
