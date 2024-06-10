@@ -2,7 +2,11 @@ import { NintondoApi, type INintondoApi } from "./api";
 import type { INintondoProvider } from "./provider";
 import { NintondoUtils, type INintondoUtilities } from "./utils";
 
-let nintondo: INintondoProvider | undefined;
+declare global {
+  interface Window {
+    nintondo: INintondoProvider;
+  }
+}
 
 export interface INintondo {
   /**
@@ -40,9 +44,9 @@ class Nintondo implements INintondo {
  * @returns Returns undefined if the Nintondo provider is not available.
  */
 export const initNintondo = (): Nintondo | undefined => {
-  if (!nintondo) {
+  if (!window.nintondo) {
     return undefined;
   }
 
-  return new Nintondo(nintondo);
+  return new Nintondo(window.nintondo);
 };
