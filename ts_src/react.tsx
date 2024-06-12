@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-  FC,
-} from "react";
+import * as React from "react";
 import { INintondo, initNintondo } from "./index";
 
 interface NintondoContextProps {
@@ -15,7 +8,7 @@ interface NintondoContextProps {
   isConnected: boolean;
 }
 
-const NintondoContext = createContext<NintondoContextProps>({
+const NintondoContext = React.createContext<NintondoContextProps>({
   nintondo: undefined,
   isConnected: false,
 });
@@ -23,14 +16,16 @@ const NintondoContext = createContext<NintondoContextProps>({
 const getTimeout = () => new Promise((resolve) => setTimeout(resolve, 100));
 
 interface NintondoProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export const NintondoProvider: FC<NintondoProviderProps> = ({ children }) => {
-  const [nintondo, setNintondo] = useState<INintondo>();
-  const [isConnected, setIsConnected] = useState<boolean>(false);
+export const NintondoProvider: React.FC<NintondoProviderProps> = ({
+  children,
+}) => {
+  const [nintondo, setNintondo] = React.useState<INintondo>();
+  const [isConnected, setIsConnected] = React.useState<boolean>(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const init = async () => {
       const nintondo_ = initNintondo();
       if (nintondo_) {
@@ -52,4 +47,4 @@ export const NintondoProvider: FC<NintondoProviderProps> = ({ children }) => {
   );
 };
 
-export const useNintondo = () => useContext(NintondoContext);
+export const useNintondo = () => React.useContext(NintondoContext);

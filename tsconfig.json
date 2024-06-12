@@ -10,8 +10,9 @@
     "strict": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
+    "jsx": "react",
     "noUnusedParameters": true,
   },
-  "include": ["ts_src/**/*.ts"],
+  "include": ["ts_src/**/*.ts", "ts_src/**/*.tsx"],
   "exclude": ["**/*.spec.ts", "node_modules/**/*"]
 }
