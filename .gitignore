@@ -178,3 +178,4 @@ dist
 src/
 
 .vscode
+bun.lockb

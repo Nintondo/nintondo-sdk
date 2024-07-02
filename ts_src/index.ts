@@ -4,6 +4,10 @@ import type { INintondoProvider } from "./provider";
 import { NintondoUtils } from "./utils";
 import type { INintondoUtilities } from "./utils";
 
+export type { INintondoProvider, NetworkType } from "./provider";
+export type { INintondoApi } from "./api";
+export type { INintondoUtilities } from "./utils";
+
 declare global {
   interface Window {
     nintondo: INintondoProvider;
@@ -45,7 +49,7 @@ class Nintondo implements INintondo {
  *
  * @returns Returns undefined if the Nintondo provider is not available.
  */
-export const initNintondo = (): Nintondo | undefined => {
+export const initNintondo = (): INintondo | undefined => {
   if (!window.nintondo) {
     return undefined;
   }

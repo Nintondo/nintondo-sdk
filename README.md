@@ -18,7 +18,7 @@ const nintondo: Nintondo | undefined = initNintondo();
 Using React.Context (for React\Next.JS projects):
 
 ```typescript
-import { useNintondo, NintondoProvider } from "nintondo-sdk/src/react";
+import { useNintondo, NintondoProvider } from "nintondo-sdk/react";
 
 const Layout = () => {
   return (

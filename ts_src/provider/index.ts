@@ -1,4 +1,3 @@
-import type { Network } from "belcoinjs-lib";
 import type { Address, SignedTxHex, SignedPsbtBase64 } from "../types";
 import type {
   CreateTxPayload,
@@ -6,6 +5,8 @@ import type {
   InscribedTransferResult,
   MultiSignPsbtOptions,
 } from "./types";
+
+export type NetworkType = "mainnet" | "testnet";
 
 export interface INintondoProvider {
   /**
@@ -71,6 +72,18 @@ export interface INintondoProvider {
    *
    * @returns The Network from belcoinjs-lib
    */
-  getNetwork(): Promise<Network>;
-  switchNetwork(network: Network): Promise<Network>;
+  getNetwork(): Promise<NetworkType>;
+  /**
+   * To switch the network of the Nintondo wallet.
+   *
+   * @param network - The network to switch to.
+   */
+  switchNetwork(network: NetworkType): Promise<NetworkType>;
+
+  on<T extends keyof Events, D extends Events[T]>(event: T, listener: D): this;
 }
+
+type Events = {
+  accountsChanged: () => void;
+  networkChanged: (network: NetworkType) => void;
+};
