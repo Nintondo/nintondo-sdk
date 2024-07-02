@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "jsx": "react",
-    "noUnusedParameters": true,
+    "noUnusedParameters": true
   },
   "include": ["ts_src/**/*.ts", "ts_src/**/*.tsx"],
   "exclude": ["**/*.spec.ts", "node_modules/**/*"]

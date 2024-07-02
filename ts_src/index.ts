@@ -1,6 +1,8 @@
-import { NintondoApi, type INintondoApi } from "./api";
+import { NintondoApi } from "./api";
+import type { INintondoApi } from "./api";
 import type { INintondoProvider } from "./provider";
-import { NintondoUtils, type INintondoUtilities } from "./utils";
+import { NintondoUtils } from "./utils";
+import type { INintondoUtilities } from "./utils";
 
 declare global {
   interface Window {
