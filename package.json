@@ -1,6 +1,6 @@
 {
   "name": "nintondo-sdk",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "Nintondo Provider SDK",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -45,7 +45,9 @@
   "exports": {
     ".": "./src/index.js",
     "./react": "./src/react.js",
-    "./types": "./src/types.js"
+    "./types": "./src/types/index.js",
+    "./provider-types": "./src/provider/types.js",
+    "./api-types": "./src/api/types.js"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
