@@ -1,6 +1,6 @@
 {
   "name": "nintondo-sdk",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Nintondo Provider SDK",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -30,10 +30,10 @@
     "prettierjs": "prettier \"src/**/*.js\" --ignore-path ./.prettierignore"
   },
   "peerDependencies": {
-    "typescript": "5.0.0"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "belcoinjs-lib": "0.0.6",
+    "belcoinjs-lib": "0.1.1",
     "react": "18.3.1"
   },
   "repository": {
