@@ -5,7 +5,6 @@
     "outDir": "./src",
     "declaration": true,
     "rootDir": "./ts_src",
-    "types": ["node"],
     "allowJs": false,
     "strict": true,
     "esModuleInterop": true,
@@ -13,6 +12,12 @@
     "jsx": "react",
     "noUnusedParameters": true
   },
-  "include": ["ts_src/**/*.ts", "ts_src/**/*.tsx"],
-  "exclude": ["**/*.spec.ts", "node_modules/**/*"]
+  "include": [
+    "ts_src/**/*.ts",
+    "ts_src/**/*.tsx"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "node_modules/**/*"
+  ]
 }

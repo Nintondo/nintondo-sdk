@@ -1,11 +1,5 @@
 import type { Address, ApiUTXO, SignedTxHex } from "../types";
-import {
-  GET_ADDRESS_STATS,
-  GET_ADDRESS_UTXOS,
-  GET_LAST_BLOCK_URL,
-  GET_LAST_PRICE_URL,
-  POST_PUSH_TX_URL,
-} from "./consts";
+import { API_URLS } from "./consts";
 import type { GetFeesResponse, PushTxResponse, UtxoQueryParams } from "./types";
 import { makeReq } from "./utils";
 
@@ -62,14 +56,14 @@ export class NintondoApi implements INintondoApi {
     params?: UtxoQueryParams
   ): Promise<ApiUTXO[] | undefined> {
     return await makeReq({
-      path: GET_ADDRESS_UTXOS(address),
+      path: API_URLS.utxo(address),
       params: params as Record<string, string> | undefined,
     });
   }
 
   async pushTx(txHex: SignedTxHex): Promise<PushTxResponse | undefined> {
     const data = await makeReq<string>({
-      path: POST_PUSH_TX_URL,
+      path: API_URLS.pushTx,
       method: "POST",
       headers: {
         "Content-Type": "text/plain",
@@ -87,7 +81,7 @@ export class NintondoApi implements INintondoApi {
 
   async getFees(): Promise<GetFeesResponse | undefined> {
     const data = await makeReq<Record<string, number>>({
-      path: "/fee-estimates",
+      path: API_URLS.feeEstimates,
     });
 
     if (!data) return undefined;
@@ -100,21 +94,21 @@ export class NintondoApi implements INintondoApi {
 
   async getAccountStats(address: string): Promise<number | undefined> {
     return await makeReq({
-      path: GET_ADDRESS_STATS(address),
+      path: API_URLS.stats(address),
     });
   }
 
   async getBellsUSDPrice(): Promise<number | undefined> {
     return (
       await makeReq<{ price_usd: number }>({
-        path: GET_LAST_PRICE_URL,
+        path: API_URLS.lastPrice,
       })
     )?.price_usd;
   }
 
   async getLastBlock(): Promise<number | undefined> {
     let data = await makeReq<string>({
-      path: GET_LAST_BLOCK_URL,
+      path: API_URLS.lastBlock,
     });
     if (!data) return undefined;
 
