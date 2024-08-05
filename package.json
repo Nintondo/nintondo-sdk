@@ -1,6 +1,6 @@
 {
   "name": "nintondo-sdk",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Nintondo Provider SDK",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -33,7 +33,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "belcoinjs-lib": "0.1.1",
+    "belcoinjs-lib": "0.1.2",
     "react": "18.3.1"
   },
   "repository": {
@@ -50,6 +50,7 @@
     "./api-types": "./src/api/types.js"
   },
   "devDependencies": {
+    "@types/node": "^22.1.0",
     "@types/react": "18.3.3",
     "better-npm-audit": "3.7.3",
     "prettier": "2.8.0",
