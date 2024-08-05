@@ -1,6 +1,6 @@
 {
   "name": "nintondo-sdk",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Nintondo Provider SDK",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
